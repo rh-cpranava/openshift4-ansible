@@ -1,0 +1,3 @@
+---
+- name: Check if logged into oc cli
+  

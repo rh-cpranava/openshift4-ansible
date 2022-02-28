@@ -1,0 +1,15 @@
+---
+- name: Import Validation Tasks
+  include_tasks: validation.yml
+
+- name: Import Machine Tasks
+  include_tasks: machine.yml
+
+- name: Import LogMon Tasks
+  include_tasks: logmon.yml
+
+- name: Import Auth Tasks
+  include_tasks: auth.yml
+
+- name: Import Security Tasks
+  include_tasks: security.yml 
