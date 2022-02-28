@@ -1,0 +1,30 @@
+---
+- name: Add Labels
+  command: /usr/local/bin/oc label node {{ item[0] }} {{ item[1] }} --kubeconfig {{ var_config_path }}
+  with_items: "{{ var_set_labels_taints }}"
+- name: Add Taints
+  command: /usr/local/bin/oc taint node {{ item[0] }} {{ item[2] }} --kubeconfig {{ var_config_path }}
+  with_items: "{{ var_set_labels_taints }}"
+- name: Create Ingress Template
+  template:
+  src: ingress-mcp.yaml.j2
+  dest: "{{ config_dest }}/ingress-mcp.yaml"
+- name: Create Monitoring Template
+  template:
+  src: monitoring-mcp.yaml.j2
+  dest: "{{ config_dest }}/monitoring-mcp.yaml"
+- name: Create Logging Template
+  template:
+  src: log-mcp.yaml.j2
+  dest: "{{ config_dest }}/log-mcp.yaml"
+- name: Create Ingress MCP
+  command: /usr/local/bin/oc create -f {{ config_dest }}/ingress-mcp.yaml --kubeconfig {{ var_config_path }}
+- name: Create Monitoring MCP
+  command: /usr/local/bin/oc create -f {{ config_dest }}/monitoring-mcp.yaml --kubeconfig {{ var_config_path }}
+- name: Create Logging MCP
+  command: /usr/local/bin/oc create -f {{ config_dest }}/log-mcp.yaml --kubeconfig {{ var_config_path }}
+    
+
+
+
+  

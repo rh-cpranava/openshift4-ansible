@@ -2,8 +2,17 @@
 - name: Import Validation Tasks
   include_tasks: validation.yml
 
+- name: Import Validation Tasks
+  include_tasks: chrony.yml
+
 - name: Import Machine Tasks
   include_tasks: machine.yml
+
+- name: Import Operator Tasks
+  include_tasks: operator.yml
+
+- name: Import Ingress Tasks
+  include_tasks: ingress.yml
 
 - name: Import LogMon Tasks
   include_tasks: logmon.yml

@@ -1,0 +1,4 @@
+---
+- name: Move Ingress Workloads
+  command: /usr/local/bin/oc patch ingresscontroller/default --type=merge -n openshift-ingress-operator -p '{"spec": {"nodePlacement":{"nodeSelector":{"matchLabels":{"node-role.kubernetes.io/ingress": ""}},"tolerations": [{"effect":"NoSchedule","key": "ingress","value": "reserved"}]}}}' --kubeconfig {{ var_config_path }}
+

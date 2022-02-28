@@ -1,0 +1,24 @@
+---
+- name: 'Create the HTPasswd file'
+  command: /usr/bin/htpasswd -c -B -b {{ config_dest }}/htpasswd {{ var_username }} {{ var_password }} --kubeconfig {{ var_config_path }}
+  register: htpasswd_file_creation_result
+  when: not htpasswd_file_stat_result.stat.exists
+
+- name: 'Check if the HTPasswd Secret has already been created'
+  command: /usr/local/bin/oc get secret htpass-secret -n openshift-config --kubeconfig {{ var_config_path }}
+  register: htpasswd_secret_created_result
+  ignore_errors: yes
+
+- name: 'Create the HTPasswd Secret'
+  command: /usr/local/bin/oc create secret generic htpass-secret --from-file=htpasswd={{ config_dest }}/htpasswd -n openshift-config --kubeconfig {{ var_config_path }}
+  when: htpasswd_secret_created_result.rc != 0
+
+- name: 'Create the htpasswd.cr custom resource template'
+  template:
+    src: 'htpasswd.cr.j2'
+    dest: '{{ config_dest }}/htpasswd.cr'
+    backup: yes
+
+- name: 'Add the HTPasswd identity provider'
+  command: /usr/local/bin/oc apply -f {{ config_dest }}/htpasswd.cr --kubeconfig {{ var_config_path }}
+  register: htpasswd_provider_result
