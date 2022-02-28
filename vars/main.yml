@@ -1,7 +1,7 @@
 ---
 # vars file for openshift4-ansible
 var_ntp_ip: 192.168.21.2
-var_kubeconfig_path: ~/.kube/config
+var_config_path: ~/.kube/config
 var_set_labels_taints:
   - node_name: node_1
     label: node-role.kubernetes.io/ingress=
@@ -12,5 +12,5 @@ var_set_labels_taints:
   - node_name: node_3
     label: node-role.kubernetes.io/monitoring=
     taints: log=reserved:NoSchedule
-config_dest: ${HOME}/oc4/
+config_dest: ~/oc4
 
