@@ -14,9 +14,6 @@
 - name: Import Ingress Tasks
   include_tasks: ingress.yml
 
-- name: Import LogMon Tasks
-  include_tasks: logmon.yml
-
 - name: Import Auth Tasks
   include_tasks: auth.yml
 

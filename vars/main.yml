@@ -8,9 +8,9 @@ var_set_labels_taints:
     taints: ingress=reserved:NoSchedule
   - node_name: node_2
     label: node-role.kubernetes.io/log=
-    taints: monitoring=reserved:NoSchedule
+    taints: log=reserved:NoSchedule
   - node_name: node_3
     label: node-role.kubernetes.io/monitoring=
-    taints: log=reserved:NoSchedule
+    taints: monitoring=reserved:NoSchedule
 config_dest: ${HOME}/oc4/
 
