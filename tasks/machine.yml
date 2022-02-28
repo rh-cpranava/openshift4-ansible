@@ -7,16 +7,16 @@
   with_items: "{{ var_set_labels_taints }}"
 - name: Create Ingress Template
   template:
-  src: ingress-mcp.yaml.j2
-  dest: "{{ config_dest }}/ingress-mcp.yaml"
+    src: ingress-mcp.yaml.j2
+    dest: "{{ config_dest }}/ingress-mcp.yaml"
 - name: Create Monitoring Template
   template:
-  src: monitoring-mcp.yaml.j2
-  dest: "{{ config_dest }}/monitoring-mcp.yaml"
+    src: monitoring-mcp.yaml.j2
+    dest: "{{ config_dest }}/monitoring-mcp.yaml"
 - name: Create Logging Template
   template:
-  src: log-mcp.yaml.j2
-  dest: "{{ config_dest }}/log-mcp.yaml"
+    src: log-mcp.yaml.j2
+    dest: "{{ config_dest }}/log-mcp.yaml"
 - name: Create Ingress MCP
   command: /usr/local/bin/oc create -f {{ config_dest }}/ingress-mcp.yaml --kubeconfig {{ var_config_path }}
 - name: Create Monitoring MCP
