@@ -5,7 +5,7 @@ An Ansible role to perform post-provisioning tasks
 
 Requirements
 ------------
-1. OC Kubecofig file
+1. OC Kubeconfig file
 
 Role Variables
 --------------
