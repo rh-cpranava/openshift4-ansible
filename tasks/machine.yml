@@ -1,9 +1,9 @@
 ---
 - name: Add Labels
-  command: /usr/local/bin/oc label node {{ item[0] }} {{ item[1] }} --kubeconfig {{ var_config_path }}
+  command: /usr/local/bin/oc label node {{ item['node_name'] }} {{ item['label'] }} --kubeconfig {{ var_config_path }}
   with_items: "{{ var_set_labels_taints }}"
 - name: Add Taints
-  command: /usr/local/bin/oc taint node {{ item[0] }} {{ item[2] }} --kubeconfig {{ var_config_path }}
+  command: /usr/local/bin/oc taint node {{ item['node_name'] }} {{ item['taints'] }} --kubeconfig {{ var_config_path }}
   with_items: "{{ var_set_labels_taints }}"
 - name: Create Ingress Template
   template:

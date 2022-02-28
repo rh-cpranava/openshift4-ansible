@@ -11,11 +11,6 @@ var_set_labels_taints:
     taints: log=reserved:NoSchedule
   - node_name: node_3
     label: node-role.kubernetes.io/monitoring=
-<<<<<<< HEAD
     taints: monitoring=reserved:NoSchedule
 config_dest: ${HOME}/oc4/
-=======
-    taints: log=reserved:NoSchedule
-config_dest: ~/oc4
->>>>>>> b271dc2e0a366fad37faafe4c49f3e768098894b
 
