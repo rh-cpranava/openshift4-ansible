@@ -1,2 +1,3 @@
 - name: Create Worker MC template
-  command: /usr/local/bin/oc patch OperatorHub cluster --type json -p '[{"op": "add", "path": "/spec/disableAllDefaultSources", "value": true}]' --kubeconfig {{ var_config_path }}
+  command: |
+      /usr/local/bin/oc patch OperatorHub cluster --type json -p '[{"op": "add", "path": "/spec/disableAllDefaultSources", "value": true}]' --kubeconfig {{ var_config_path }}
