@@ -1,7 +1,7 @@
 ---
 - name: Disable self provisioning
   command:  |
-      /usr/local/bin/oc oc patch clusterrolebinding.rbac self-provisioners -p '{"subjects": null}' --kubeconfig {{ var_config_path }}
+      /usr/local/bin/oc patch clusterrolebinding.rbac self-provisioners -p '{"subjects": null}' --kubeconfig {{ var_config_path }}
     
 
 

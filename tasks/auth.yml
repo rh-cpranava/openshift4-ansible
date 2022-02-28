@@ -1,8 +1,7 @@
 ---
 - name: 'Create the HTPasswd file'
-  command: /usr/bin/htpasswd -c -B -b {{ config_dest }}/htpasswd {{ var_username }} {{ var_password }} --kubeconfig {{ var_config_path }}
+  command: /usr/bin/htpasswd -c -B -b {{ config_dest }}/htpasswd {{ var_username }} {{ var_password }}
   register: htpasswd_file_creation_result
-  when: not htpasswd_file_stat_result.stat.exists
 
 - name: 'Check if the HTPasswd Secret has already been created'
   command: /usr/local/bin/oc get secret htpass-secret -n openshift-config --kubeconfig {{ var_config_path }}
