@@ -1,5 +1,6 @@
 ---
 - name: Check if logged into oc cli
-  command: /usr/local/bin/oc whoami --kubeconfig {{ var_config_path }}
+  command:   |
+      /usr/local/bin/oc whoami --kubeconfig {{ var_config_path }}
 
   
