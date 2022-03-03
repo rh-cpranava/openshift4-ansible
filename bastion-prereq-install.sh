@@ -30,7 +30,7 @@ chmod +x oc
 mv oc /usr/bin
 
 #Download openshift-install tar file
-curl https://mirror.openshift.com/pub/openshift-v4/x86_64/clients/ocp/latest/openshift-client-linux.tar.gz -o openshift-install.tar.gz
+curl https://mirror.openshift.com/pub/openshift-v4/x86_64/clients/ocp/latest/openshift-install-linux.tar.gz -o openshift-install.tar.gz
 tar -xvf openshift-install.tar.gz
 chmod +x openshift-install
 mv openshift-install /usr/bin
