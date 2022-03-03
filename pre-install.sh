@@ -43,3 +43,6 @@ systemctl enable httpd
 systemctl start httpd
 mkdir -p /var/www/html/ocp/ignition
 chmod 755 /var/www/html/ocp/ignition/*
+
+#Download and install webserver
+yum install -y jq tmux skopeo 
